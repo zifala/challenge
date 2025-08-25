@@ -87,7 +87,7 @@ You will deliver:
 - `README` must include:
   - How to run locally.
   - How to run tests.
-  - Design notes. Data source choice, decisions, limits.
+  - Design notes. Data source choice, decisions, and limits.
   - Where you used AI, and why.
   - Time complexity analysis.
 
@@ -100,10 +100,11 @@ You will deliver:
 
 ## Submission
 
-- Fork this repo.
-- Implement the app.
-- Open source your fork.
-- Share the live URL and repo URL.
+- Fork this repo.  
+- Implement the app in your fork.  
+- Open a Pull Request (PR) to this repo with your solution.  
+- Include the live deployment URL in your PR description.
+
 
 ## Evaluation
 
