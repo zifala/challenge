@@ -1,3 +1,54 @@
+## Zifala Distance App
+
+Full-stack Next.js 14 app to compute great-circle distances between selected countries.
+
+### Tech
+- Next.js 14 App Router, TypeScript
+- Tailwind CSS, minimal shadcn-like UI primitives
+- Zod for validation
+- Vitest for tests
+
+### Getting Started
+
+```bash
+npm install # or pnpm/yarn
+npm run dev # http://localhost:3000
+```
+
+### Tests
+
+```bash
+npm test
+```
+
+### API
+- GET `/api/countries` → dataset
+- POST `/api/distances` body `{ "countries": ["SO","KE","ET","DJ"] }`
+  - returns `{ pairs: [{a,b,km}], count, unit: "km" }`
+- GET `/api/stream-distances?countries=SO,KE,ET,DJ` → SSE stream of `{"done","total","latest"}`
+
+Note: The browser `EventSource` does not support POST bodies. The SSE endpoint accepts GET with query params; the UI also fetches final sorted results via POST for completeness.
+
+### Dataset Source
+Coordinates approximate capitals. You can expand `data/countries.json`. Example entry:
+```
+{"iso2":"SO","name":"Somalia","capital":"Mogadishu","lat":2.0469,"lon":45.3182}
+```
+
+### Complexity
+- For n countries, number of unique pairs is n(n-1)/2.
+- Time complexity O(n^2) for pair generation; Haversine per pair is O(1).
+- Memory complexity O(n^2) to materialize all pairs.
+
+### Deploy (Vercel)
+- Connect repo to Vercel
+- Root project with Next.js defaults
+- Environment: none needed
+- `vercel.json` included
+
+### Bonus Map (optional)
+Integrate Leaflet to show top 20 pairs by distance drawing lines between capitals.
+
 # Zifala Full Stack Challenge
 
 Build a small app end to end. Use AI tools if you like. Own the result.
