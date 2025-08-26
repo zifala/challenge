@@ -2,6 +2,32 @@
 
 A high-performance web application for calculating and visualizing distances between countries using the Haversine formula. Built with Next.js, TypeScript, and React Leaflet.
 
+## 🎯 Challenge Overview
+
+This is my submission for the Zifala Full Stack Challenge. The goal was to build a small app end-to-end that calculates distances between countries using the Haversine formula.
+
+**Challenge Requirements:**
+- Given a list of countries, return all unique country pairs sorted by shortest distance between their capitals
+- Example: `["SO", "KE", "ET", "DJ"]` → `["DJ", "SO"] -> 1165.4 km`
+- Implement API, Frontend, Deployment, Tests, and Live updates
+
+## 🚀 Live Deployment
+
+**Application:** https://zifala-full-stack-challenge.vercel.app/
+
+**API Base:** https://zifala-full-stack-challenge.vercel.app/api
+
+## 📊 Project Status
+
+✅ **Complete** - All requirements implemented and deployed successfully!
+
+- ✅ API with all endpoints
+- ✅ Frontend with real-time updates  
+- ✅ Deployment on Vercel
+- ✅ Comprehensive test suite
+- ✅ Live updates via Server-Sent Events
+- ✅ Bonus features: Map view, caching, CSV download
+
 ## 🚀 Features
 
 - **Multi-Country Selection**: Choose 2-250 countries from a searchable dropdown
@@ -134,7 +160,9 @@ npm run test:coverage
 
 ## 🤖 AI Usage and Justification
 
-### Where AI Was Used
+**AI Tool Used: Cursor AI (Only)**
+
+### Where Cursor AI Was Used
 
 #### 1. **Initial Project Setup**
 - **Usage**: Generated Next.js project structure with TypeScript
@@ -166,13 +194,19 @@ npm run test:coverage
 - **Why**: Professional appearance, user experience optimization
 - **Result**: Beautiful, intuitive interface
 
-### Why AI Was Beneficial
+#### 7. **Bug Fixes and Code Review**
+- **Usage**: Identified and fixed hydration errors, duplicate keys, TypeScript issues
+- **Why**: Ensure production-ready, error-free code
+- **Result**: Robust application with comprehensive error handling
+
+### Why Cursor AI Was Beneficial
 
 1. **Rapid Development**: Accelerated initial setup and core functionality
 2. **Best Practices**: Ensured modern patterns and conventions
 3. **Complex Algorithms**: Implemented sophisticated performance optimizations
 4. **Testing Coverage**: Generated comprehensive test scenarios
 5. **Code Quality**: Maintained consistent code style and structure
+6. **Problem Solving**: Helped identify and resolve technical issues quickly
 
 ## ⏱️ Time Complexity Analysis
 
@@ -290,29 +324,33 @@ for (let i = 0; i < countries.length; i++) {
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### ✅ Successfully Deployed on Vercel
+
+**Live Application:** https://zifala-full-stack-challenge.vercel.app/
+
+**Deployment Process:**
 ```bash
+# Build the application
 npm run build
+
+# Deploy to Vercel
 vercel --prod
 ```
 
-### Other Platforms
-- **Netlify**: Compatible with Next.js
-- **Railway**: Node.js support
-- **Docker**: Containerized deployment
+### Deployment Features
+- ✅ **Automatic CI/CD**: Deploys on every push to main branch
+- ✅ **Environment Variables**: Properly configured for production
+- ✅ **Performance Optimized**: Optimized bundle size and loading
+- ✅ **SSL Certificate**: HTTPS enabled by default
+- ✅ **Global CDN**: Fast loading worldwide
 
-## 📝 License
+## 📊 Project Status
 
-MIT License - see LICENSE file for details
+✅ **Challenge Complete** - All requirements successfully implemented and deployed!
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Submit a pull request
-
-## 📞 Support
-
-For questions or issues, please open a GitHub issue or contact the development team.
+- ✅ **API**: GET `/api/countries`, POST `/api/distances` with SSE streaming
+- ✅ **Frontend**: React/Next.js with TypeScript and Tailwind CSS
+- ✅ **Real-time Updates**: Server-Sent Events implementation
+- ✅ **Testing**: Comprehensive test suite (13 tests passing)
+- ✅ **Deployment**: Live on Vercel with automatic CI/CD
+- ✅ **Bonus Features**: Interactive map, caching, CSV export
