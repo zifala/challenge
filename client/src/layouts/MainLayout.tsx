@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type  { ReactNode } from 'react';
 import { Globe } from '../components/Icons';
 
 interface MainLayoutProps {

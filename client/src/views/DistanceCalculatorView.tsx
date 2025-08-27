@@ -1,4 +1,4 @@
-import { AlertCircle, CheckCircle, Calculator } from '../components/Icons';
+import { CheckCircle, Calculator } from '../components/Icons';
 import { CountrySelector } from '../components/CountrySelector';
 import { ProgressBar } from '../components/ProgressBar';
 import { ResultsTable } from '../components/ResultsTable';
