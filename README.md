@@ -16,7 +16,8 @@ Example pair in output:
 ## Scope
 
 You will deliver:
-1) API, 2) Frontend, 3) Deployment, 4) Tests, 5) Live updates.
+
+1. API, 2) Frontend, 3) Deployment, 4) Tests, 5) Live updates.
 
 ### 1) API
 
@@ -25,24 +26,31 @@ You will deliver:
   - Key by ISO 3166 alpha-2 or alpha-3, include the country name.
   - Example record:
     ```json
-    {"iso2":"SO","name":"Somalia","capital":"Mogadishu","lat":2.0469,"lon":45.3182}
+    {
+      "iso2": "SO",
+      "name": "Somalia",
+      "capital": "Mogadishu",
+      "lat": 2.0469,
+      "lon": 45.3182
+    }
     ```
 - Endpoints:
+
   - `GET /api/countries`  
     Returns the list from your dataset.
   - `POST /api/distances`  
     Body: `{"countries":["SO","KE","ET","DJ"]}`
     Behavior:
-      - Validate codes against the dataset.
-      - Compute great-circle distances using the Haversine formula.
-      - Generate all unique pairs. n countries -> n*(n-1)/2 pairs.
-      - Return pairs sorted ascending by kilometers.
-    Response:
+    - Validate codes against the dataset.
+    - Compute great-circle distances using the Haversine formula.
+    - Generate all unique pairs. n countries -> n\*(n-1)/2 pairs.
+    - Return pairs sorted ascending by kilometers.
+      Response:
     ```json
     {
       "pairs": [
-        {"a":"DJ","b":"SO","km":1165.4},
-        {"a":"KE","b":"SO","km":1374.9}
+        { "a": "DJ", "b": "SO", "km": 1165.4 },
+        { "a": "KE", "b": "SO", "km": 1374.9 }
       ],
       "count": 6,
       "unit": "km"
@@ -52,7 +60,11 @@ You will deliver:
     - Stream progress as pairs complete.
     - Message format:
       ```json
-      {"done": 10, "total": 6, "latest": {"a":"DJ","b":"SO","km":1165.4}}
+      {
+        "done": 10,
+        "total": 6,
+        "latest": { "a": "DJ", "b": "SO", "km": 1165.4 }
+      }
       ```
     - SSE is preferred for Vercel free plans.
 
@@ -100,11 +112,10 @@ You will deliver:
 
 ## Submission
 
-- Fork this repo.  
-- Implement the app in your fork.  
-- Open a Pull Request (PR) to this repo with your solution.  
+- Fork this repo.
+- Implement the app in your fork.
+- Open a Pull Request (PR) to this repo with your solution.
 - Include the live deployment URL in your PR description.
-
 
 ## Evaluation
 
@@ -113,7 +124,6 @@ You will deliver:
 - Frontend UX. Fast, simple, accessible.
 - Realtime. Streams work and do not block the UI.
 - Deployment. Stable, public, and documented.
-
 
 Good luck. We’re looking for creativity, not perfection.  
 _Zifala Team_

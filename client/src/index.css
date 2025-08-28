@@ -1,3 +1,4 @@
+@import "leaflet/dist/leaflet.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +8,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -25,27 +26,27 @@ body {
   .btn {
     @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
   }
-  
+
   .btn-primary {
     @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
   }
-  
+
   .btn-secondary {
     @apply bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500;
   }
-  
+
   .btn-success {
     @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
   }
-  
+
   .btn-danger {
     @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
   }
-  
+
   .input {
     @apply block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent;
   }
-  
+
   .card {
     @apply bg-white rounded-lg shadow-sm border border-gray-200;
   }

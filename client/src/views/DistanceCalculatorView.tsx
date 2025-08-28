@@ -1,16 +1,20 @@
-import { CheckCircle, Calculator } from '../components/Icons';
-import { CountrySelector } from '../components/CountrySelector';
-import { ProgressBar } from '../components/ProgressBar';
-import { ResultsTable } from '../components/ResultsTable';
-import { useDistanceCalculation } from '../hooks/useDistanceCalculation';
-import type { Country } from '../types';
+import { CheckCircle, Calculator } from "../components/Icons";
+import { CountrySelector } from "../components/CountrySelector";
+import { ProgressBar } from "../components/ProgressBar";
+import { ResultsTable } from "../components/ResultsTable";
+import { useDistanceCalculation } from "../hooks/useDistanceCalculation";
+import type { Country } from "../types";
+import { MapView } from "../components/MapView";
 
 interface DistanceCalculatorViewProps {
   countries: Country[];
   onError: (error: string) => void;
 }
 
-export const DistanceCalculatorView = ({ countries, onError }: DistanceCalculatorViewProps) => {
+export const DistanceCalculatorView = ({
+  countries,
+  onError,
+}: DistanceCalculatorViewProps) => {
   const {
     selectedCountries,
     results,
@@ -24,7 +28,7 @@ export const DistanceCalculatorView = ({ countries, onError }: DistanceCalculato
     calculateDistances,
     resetCalculation,
     setUseStreaming,
-    setError
+    setError,
   } = useDistanceCalculation();
 
   // Propagate errors to parent
@@ -37,7 +41,9 @@ export const DistanceCalculatorView = ({ countries, onError }: DistanceCalculato
     <div className="space-y-8">
       {/* Country Selection */}
       <div className="bg-white rounded-lg shadow-sm border p-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">Select Countries</h2>
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          Select Countries
+        </h2>
         <CountrySelector
           countries={countries}
           selectedCountries={selectedCountries}
@@ -51,7 +57,9 @@ export const DistanceCalculatorView = ({ countries, onError }: DistanceCalculato
       {selectedCountries.length >= 2 && (
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">Calculate Distances</h2>
+            <h2 className="text-lg font-semibold text-gray-900">
+              Calculate Distances
+            </h2>
             <div className="flex items-center gap-4">
               <label className="flex items-center gap-2 text-sm">
                 <input
@@ -69,7 +77,7 @@ export const DistanceCalculatorView = ({ countries, onError }: DistanceCalculato
                 className="flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
               >
                 <Calculator className="w-4 h-4" />
-                {isCalculating ? 'Calculating...' : 'Calculate Distances'}
+                {isCalculating ? "Calculating..." : "Calculate Distances"}
               </button>
             </div>
           </div>
@@ -84,7 +92,9 @@ export const DistanceCalculatorView = ({ countries, onError }: DistanceCalculato
         <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center gap-3">
           <CheckCircle className="w-5 h-5 text-green-500" />
           <div>
-            <h3 className="font-medium text-green-800">Calculation Complete!</h3>
+            <h3 className="font-medium text-green-800">
+              Calculation Complete!
+            </h3>
             <p className="text-green-700">
               Successfully calculated {results.count} distance pairs.
             </p>
@@ -99,12 +109,28 @@ export const DistanceCalculatorView = ({ countries, onError }: DistanceCalculato
       )}
 
       {/* Results Table */}
-      {results && (
+      {/* {results && (
         <div className="bg-white rounded-lg shadow-sm border p-6">
           <ResultsTable
             pairs={results.pairs}
             totalCount={results.count}
             unit={results.unit}
+          />
+        </div>
+      )} */}
+
+      {results && (
+        <div className="bg-white rounded-lg shadow-sm border p-6 space-y-4">
+          <ResultsTable
+            pairs={results.pairs}
+            totalCount={results.count}
+            unit={results.unit}
+          />
+
+          {/* Map View */}
+          <MapView
+            selectedCountries={selectedCountries}
+            pairs={results.pairs}
           />
         </div>
       )}
@@ -115,12 +141,15 @@ export const DistanceCalculatorView = ({ countries, onError }: DistanceCalculato
           <h3 className="font-medium text-blue-800 mb-2">How to use:</h3>
           <ol className="list-decimal list-inside space-y-1 text-blue-700">
             <li>Search and select at least 2 countries from the dropdown</li>
-            <li>Click "Calculate Distances" to compute great-circle distances</li>
+            <li>
+              Click "Calculate Distances" to compute great-circle distances
+            </li>
             <li>View results in the sortable table below</li>
             <li>Download results as CSV for further analysis</li>
           </ol>
           <p className="mt-3 text-sm text-blue-600">
-            💡 Tip: Enable "Real-time progress" to see calculations as they happen!
+            💡 Tip: Enable "Real-time progress" to see calculations as they
+            happen!
           </p>
         </div>
       )}
